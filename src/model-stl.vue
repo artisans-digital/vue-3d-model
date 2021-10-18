@@ -34,7 +34,10 @@ export default {
   data() {
     const loader = new STLLoader();
     loader.setCrossOrigin(this.crossOrigin);
-    loader.setWithCredentials(true);
+
+    if (this.crossOrigin === 'use-credentials') {
+      loader.setWithCredentials(true);
+    }
 
     return {
       loader,
